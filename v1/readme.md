@@ -46,7 +46,8 @@ fyrir sérhverja náttúrulega tölu $n \geq 1$ gildir $f^2_1 + f^2_2 + ... + f^
 
 ### þrepunarskref
 látum $n = 2 = k$
-og byrjum á að finna $f_k, f_{k+1}, f_{k+2}$
+og byrjum á að finna $f_k, f_{k+1}, f_{k+2}$  
+
 $$
 \begin{align*}
     f_{k} = f_{k-1} + f_{k-2} &= 1+0 &= 1 \\
