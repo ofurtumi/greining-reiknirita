@@ -56,7 +56,7 @@ $$
 \end{align*}
 $$
 
-leiðum svo út fyrir $f_k$ og $f_{k+1}$
+leiðum svo út fyrir $f_k$ og $f_{k+1}$  
 
 $$
 \begin{align*}
@@ -67,8 +67,6 @@ $$
     f_{k+1}f_{k+2} &= 2 \cdot 3 &= 6
 \end{align*}
 $$
-
-
 
 
 ## 3. - endurkvæm reiknirit
