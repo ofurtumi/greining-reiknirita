@@ -3,6 +3,7 @@
 ## 1. - mengi
 
 látum $A = \Bigl\{1+i+\begin{pmatrix}6 \\ i \end{pmatrix}\ |\ i \in \Z \land 0 \leq i \leq 6\Bigr\}$  
+
 látum $B = \{2i\ |\ i\in\{1,2,3,4\}\}$  
 
 þá höfum við mengin, $A = \{2,8,18,24,20,12,8\}$ og $B = \{2,4,6,8\}$
@@ -62,6 +63,7 @@ $$
 \begin{align*}
     f^2_1 + f^2_k &= 1^2+1^2&= 2\\ 
     f_kf_{k+1} &= 1 \cdot2 &= 2\\ \\
+
     f^2_{1} + f^2_{k} + f^2_{k+1} &= 1^2 + 1^2 + 2^2 &= 6\\
     f_{k+1}f_{k+2} &= 2 \cdot 3 &= 6
 \end{align*}
