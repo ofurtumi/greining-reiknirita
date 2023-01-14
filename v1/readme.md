@@ -3,8 +3,8 @@
 ## 1. - mengi
 
 við vitum að   
-$A = \Bigl \{ 1+i+ {6 \choose i } \ |\ i \in \Z \land 0 \leq i \leq 6\Bigr\}$  
-$B = \{2i\ |\ i\in\{1,2,3,4\}\}$  
+$A = \Big\{ 1+i+ {6 \choose i } \ |\ i \in \mathbb{Z} \land 0 \leq i \leq 6\Big\}$  
+$B = \big\{2i\ |\ i\in\{1,2,3,4\}\big\}$  
 
 þá höfum við mengin, 
 $A = \{2,8,18,24,20,12,8\}$ og 
