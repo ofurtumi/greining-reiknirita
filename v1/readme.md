@@ -2,11 +2,12 @@
 
 ## 1. - mengi
 
-látum $A = \Bigl\{1+i+\begin{pmatrix}6 \\ i \end{pmatrix}\ |\ i \in \Z \land 0 \leq i \leq 6\Bigr\}$  
+látum 
+$A = \Bigl \{ 1+i+\begin{pmatrix} 6 \\ i \end{pmatrix} \ |\ i \in \Z \land 0 \leq i \leq 6\Bigr\}$  og $B = \{2i\ |\ i\in\{1,2,3,4\}\}$  
 
-látum $B = \{2i\ |\ i\in\{1,2,3,4\}\}$  
-
-þá höfum við mengin, $A = \{2,8,18,24,20,12,8\}$ og $B = \{2,4,6,8\}$
+þá höfum við mengin, 
+$A = \{2,8,18,24,20,12,8\}$ og 
+$B = \{2,4,6,8\}$
 
 > python forritunarbútur til að fá niðurstöðurnar
 ```python
@@ -25,29 +26,34 @@ $|A\cup B| = |\{2,4,6,8,12,18,20,24\}| = 8$
 $|A - B| = |\{12,18,20,24\}| = 4$
 
 ### iv)
-$$
-|A \times B| = \left\lvert \begin{Bmatrix*}[r]
+$$|A \times B| = \left\lvert \begin{Bmatrix*}[r]
     2,2  &2,4  &2,6  &2,8\\
     8,2  &8,4  &8,6  &8,8\\
     18,2 &18,4 &18,6 &18,8\\
     24,2 &24,4 &24,6 &24,8\\
     20,2 &20,4 &20,6 &20,8\\
     12,2 &12,4 &12,6 &12,8
-\end{Bmatrix*}\right\rvert = 24
-$$
+\end{Bmatrix*}\right\rvert = 24$$
 
 
 ## 2. - þrepun, endurkvæm skilgreining
 
 ### grunnforsenda
-fyrir náttúrúlegar tölur $n \gt 1$ gildir $f_n = f_{n-1} + f_{n-2}$ þar sem $f_0  = 0, f_1 = 1$
+fyrir náttúrúlegar tölur 
+$n \gt 1$ gildir 
+$f_n = f_{n-1} + f_{n-2}$ þar sem 
+$f_0  = 0, f_1 = 1$
 
 ### þrepunarforsendan 
-fyrir sérhverja náttúrulega tölu $n \geq 1$ gildir $f^2_1 + f^2_2 + ... + f^2_n = f_nf_{n+1}$
+fyrir sérhverja náttúrulega tölu 
+$n \geq 1$ gildir 
+$f^2_1 + f^2_2 + ... + f^2_n = f_nf_{n+1}$
 
 ### þrepunarskref
-látum $n = 2 = k$
-og byrjum á að finna $f_k, f_{k+1}, f_{k+2}$  
+látum 
+$n = 2 = k$
+og byrjum á að finna 
+$f_k, f_{k+1}, f_{k+2}$  
 
 $$
 \begin{align*}
@@ -57,7 +63,9 @@ $$
 \end{align*}
 $$
 
-leiðum svo út fyrir $f_k$ og $f_{k+1}$  
+leiðum svo út fyrir 
+$f_k$ og 
+$f_{k+1}$  
 
 $$
 \begin{align*}
@@ -97,4 +105,5 @@ int func telja(int n) {
 
 netið er stefnt með engar þyngdir á leggjunum þar sem leggir tákna mögulegar leiðir á borðinu og hnútar tákna staðsetningu á borðinu  
 leið til að útfæra netið sem `G=(V, E)` væri að lykkja yfir öll `n^2` stökin, athuga fyrir hvert stak hvort hægt sé að fara á reit `x` reiti í burtu upp niður hægri og vinstri við stakið og skila legg fyrir það stak
-það þarf að fara yfir öll stök borðsins sem eru $n^2$ mörg og fyrir hvert stak þarf að athuga fjórar stöður, því verður $T(n) = 4*n^2 = O(n^2)$
+það þarf að fara yfir öll stök borðsins sem eru $n^2$ mörg og fyrir hvert stak þarf að athuga fjórar stöður, því verður 
+$T(n) = 4*n^2 = O(n^2)$
