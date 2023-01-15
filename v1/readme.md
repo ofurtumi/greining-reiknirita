@@ -1,10 +1,16 @@
+---
+script: 
+    - path: utils/mathjax-config.js
+    - url: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
+---
+
 # heimaverkefni 1
 
 ## 1. - mengi
 
 við vitum að   
-$A = \Big\{ 1+i+ {6 \choose i } \ |\ i \in \mathbb{Z} \land 0 \leq i \leq 6\Big\}$  
-$B = \big\{2i\ |\ i\in\{1,2,3,4\}\big\}$  
+$A = \Big( 1 + i + {6 \choose i } | i \in \mathbb{Z} \land 0 \leq i \leq 6\Big)$  
+$B = \big(2i | i \in \{1,2,3,4\} \big)$  
 
 þá höfum við mengin, 
 $A = \{2,8,18,24,20,12,8\}$ og 
@@ -27,14 +33,14 @@ $|A\cup B| = |\{2,4,6,8,12,18,20,24\}| = 8$
 $|A - B| = |\{12,18,20,24\}| = 4$
 
 ### iv)
-$|A \times B| = \left\lvert \begin{Bmatrix*}[r]
-    2,2  &2,4  &2,6  &2,8\\
-    8,2  &8,4  &8,6  &8,8\\
-    18,2 &18,4 &18,6 &18,8\\
-    24,2 &24,4 &24,6 &24,8\\
-    20,2 &20,4 &20,6 &20,8\\
+$|A \times B| = \left\lvert \begin{Bmatrix}
+    2,2  &2,4  &2,6  &2,8\\\\
+    8,2  &8,4  &8,6  &8,8\\\\
+    18,2 &18,4 &18,6 &18,8\\\\
+    24,2 &24,4 &24,6 &24,8\\\\
+    20,2 &20,4 &20,6 &20,8\\\\
     12,2 &12,4 &12,6 &12,8
-\end{Bmatrix*}\right\rvert = 24$
+\end{Bmatrix}\right\rvert = 24$
 
 
 ## 2. - þrepun, endurkvæm skilgreining
@@ -56,26 +62,22 @@ $n = 2 = k$
 og byrjum á að finna 
 $f_k, f_{k+1}, f_{k+2}$  
 
-$$
-\begin{align*}
-    f_{k} = f_{k-1} + f_{k-2} &= 1+0 &= 1 \\
-    f_{k+1} = f_{k} + f_{k-1} &= 1+1 &= 2 \\ 
+$$\begin{align*}
+    f_{k} = f_{k-1} + f_{k-2} &= 1+0 &= 1 \\\\
+    f_{k+1} = f_{k} + f_{k-1} &= 1+1 &= 2 \\\\
     f_{k+2} = f_{k+1} + f_{k} &= 1+2 &= 3 
-\end{align*}
-$$
+\end{align*}$$
 
 leiðum svo út fyrir 
 $f_k$ og 
 $f_{k+1}$  
 
-$$
-\begin{align*}
-    f^2_1 + f^2_k &= 1^2+1^2&= 2\\ 
-    f_kf_{k+1} &= 1 \cdot2 &= 2\\ \\
-    f^2_{1} + f^2_{k} + f^2_{k+1} &= 1^2 + 1^2 + 2^2 &= 6\\
+$$\begin{align*}
+    f^2_1 + f^2_k &= 1^2+1^2&= 2\\\\ 
+    f_kf_{k+1} &= 1 \cdot2 &= 2\\\\
+    f^2_{1} + f^2_{k} + f^2_{k+1} &= 1^2 + 1^2 + 2^2 &= 6\\\\
     f_{k+1}f_{k+2} &= 2 \cdot 3 &= 6
-\end{align*}
-$$
+\end{align*}$$
 
 
 ## 3. - endurkvæm reiknirit

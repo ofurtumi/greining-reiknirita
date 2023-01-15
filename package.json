@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "render": "node render.js"
+  },
+  "dependencies": {
+    "katex": "^0.16.4",
+    "md-to-pdf": "^5.2.1"
+  }
+}
