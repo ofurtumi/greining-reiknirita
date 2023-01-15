@@ -19,28 +19,31 @@ $B = \{2,4,6,8\}$
 > python forritunarbútur til að fá niðurstöðurnar
 ```python
 from math import factorial
-A = [1 + i + (factorial(6) / ((factorial(6 - i) * factorial(i)))) for i in range(0, 7)]
+def binomial(n, k): 
+    return (factorial(k)/((factorial(k-n)*factorial(n))))
+
+A = [1 + i + binomial(i,6) for i in range(0, 7)]
 B = [2 * i for i in range(1, 5)]
 ```
 
 ### i)
-$A\cap B = \{2,8\}$
+$$A\cap B = \{2,8\}$$
 
 ### ii)
-$|A\cup B| = |\{2,4,6,8,12,18,20,24\}| = 8$
+$$|A\cup B| = |\{2,4,6,8,12,18,20,24\}| = 8$$
 
 ### iii)
-$|A - B| = |\{12,18,20,24\}| = 4$
+$$|A - B| = |\{12,18,20,24\}| = 4$$
 
 ### iv)
-$|A \times B| = \left\lvert \begin{Bmatrix*}[r]
+$$|A \times B| = \left\lvert \begin{Bmatrix}
     2,2  &2,4  &2,6  &2,8\\\\
     8,2  &8,4  &8,6  &8,8\\\\
     18,2 &18,4 &18,6 &18,8\\\\
     24,2 &24,4 &24,6 &24,8\\\\
     20,2 &20,4 &20,6 &20,8\\\\
     12,2 &12,4 &12,6 &12,8
-\end{Bmatrix*}\right\rvert = 24$
+\end{Bmatrix}\right\rvert = 24$$
 
 
 ## 2. - þrepun, endurkvæm skilgreining
