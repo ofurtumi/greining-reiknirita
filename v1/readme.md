@@ -9,8 +9,8 @@ script:
 ## 1. - mengi
 
 við vitum að   
-$A = \Big( 1 + i + {6 \choose i } | i \in \mathbb{Z} \land 0 \leq i \leq 6\Big)$  
-$B = \big(2i | i \in \{1,2,3,4\} \big)$  
+$A = \\{ 1 + i + {6 \choose i } | i \in \mathbb{Z} \land 0 \leq i \leq 6\\}$  
+$B = \\{2i | i \in \{1,2,3,4\} \\}$  
 
 þá höfum við mengin, 
 $A = \{2,8,18,24,20,12,8\}$ og 

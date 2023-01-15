@@ -11,7 +11,7 @@ if (argv[2]) {
 		? argv[3]
 		: `skil/${fileIn
 				.replace('.md', '.pdf')
-				.replace('readme', '')
+				.replace('/readme', '')
 				.replace('/', '_')}`;
 	render(fileIn, fileOut);
 } else {
