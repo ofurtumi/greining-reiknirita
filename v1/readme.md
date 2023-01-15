@@ -33,14 +33,14 @@ $|A\cup B| = |\{2,4,6,8,12,18,20,24\}| = 8$
 $|A - B| = |\{12,18,20,24\}| = 4$
 
 ### iv)
-$|A \times B| = \left\lvert \begin{Bmatrix}
+$|A \times B| = \left\lvert \begin{Bmatrix*}[r]
     2,2  &2,4  &2,6  &2,8\\\\
     8,2  &8,4  &8,6  &8,8\\\\
     18,2 &18,4 &18,6 &18,8\\\\
     24,2 &24,4 &24,6 &24,8\\\\
     20,2 &20,4 &20,6 &20,8\\\\
     12,2 &12,4 &12,6 &12,8
-\end{Bmatrix}\right\rvert = 24$
+\end{Bmatrix*}\right\rvert = 24$
 
 
 ## 2. - þrepun, endurkvæm skilgreining
