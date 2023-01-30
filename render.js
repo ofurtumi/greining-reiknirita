@@ -2,6 +2,8 @@ const { default: mdToPdf } = require('md-to-pdf');
 const { argv } = require('node:process');
 
 const render = async (fileIn, fileOut) => {
+	console.log('fileIn --> ', fileIn);
+	console.log('fileOut --> ', fileOut);
 	await mdToPdf({ path: fileIn }, { dest: fileOut });
 };
 
