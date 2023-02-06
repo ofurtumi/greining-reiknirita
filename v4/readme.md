@@ -27,32 +27,86 @@ $$\frac{1}{2}(n-1)n = O(n^2)$$
 
 ## b)
 ### i.
-undirverkefnin `M(i, j)` í þessu verkefni eru að finna stærstu summu samliggjandi talna `A[i:j]` 
+undirverkefni eru hér að finna hvort 
+$0 \leq A[i] \leq A[i] + A[i+1]$
 
 ### ii.
-við þurfum að finna fyrir hvern stað 
-$$M(i, j) = \begin{cases}A[i] & \text{ef}\ i = j\\ Max(Sum(M(i+1, j)), Max(M(i, j-1))) & \text{annars}\end{cases}$$
+fyrir hvert stak þarf að athuga hvort lengsta hlutsumma hingað til sé stærri eða minni ef stakinu er bætt við
+$$largest = max(largest, max (0, current + A[i]))$$
 
 ### iii.
-hægt væri að geyma summu fyrir `A[i:j]` eftir að vera reiknuð í fyrsta skipti og vísað í það í seinni endurkvæmni
+við komum í veg fyrir endurtekna útreikninga með því að geyma bæði stærstu núverandi stöðu og stærstu fundnu stöðu 
 
 ### iv.
-röð undirverkefna er 
-$i > n > j $
+röð undirverkefna er vaxandi i
 
 ### v. 
 grunntilvik er 
-$i = j$ og þá er skilað `A[i]`
+$i = n$ og þá er skilað `largest`
 
 ### vi.
-lausn á upphaflegu verkefni væri `M(0,n)`
+lausn á upphaflegu verkefni væri `LCS(A)`
+
+### vii.
+hvert undirverkefni sér bara um að framkvæma eina samlagningu og tvo samanburði sem samsvarar 
+$O(3)$  
+tímaflækjan væri þá 
+$\text{fjöldi undirverkefna} \cdot \text{tími undirverkefnis} = O(n) \cdot O(3) = O(n)$
+
+### kóðaútfærsla
+```python
+def new(A):
+    largest = -99999
+    large_sub = 0
+    for i in range(len(A)):
+        large_sub = max(0, large_sub + A[i])
+        if large_sub > largest: largest = large_sub
+
+    return largest
+```
 
 # 2. Bestun á prófi
+## i.
+undirverkefni hér væru að leggja `A[i]` við summu `A[0, 2 .. i-2]`
+
+## ii.
+ef `i%2==0` þá bætir fallið `A[i]` við breytu sem heldur utan um summu sléttra `i`, annars við breytu odda `i`
+$$BaP(i) = \begin{cases}
+    max(even, odd) & \text{ef}\ i = n \\
+    even + A[i] & \text{ef}\ i\%2=0 \\
+    odd + A[i] & \text{ef}\ i\%2\neq 0
+\end{cases}$$
+
+## iii.
+með því að halda breytum `odd` og `even` þurfum við bara að fara yfir fylkið einu sinni
+
+## iv.
+röð undirverkefna er vaxandi `i`
+
+## v.
+grunntilvik er ef $i = n$
+
+## vi.
+lausn á upphaflegu verkefni er fengin með `BaP(0)`
+
+## vii.
+tímaflækja er $O(n) \cdot O(1) = O(n)$
+
+## kóði.
+A = [5, 4, 2, 3]
+def BaP(i):
+    even = odd = 0
+    for (i, a) in enumerate(A):
+        if i % 2 == 0:
+            even += a
+        else:
+            odd += a
+    return max(even, odd)
 
 # 3. Soby Melene
 ## a)
 tökum fyrir dæmið sem er gefið í skilaheftinu, nú þegar í borðinu er leið til að ná **6** færslum, veljum nú alltaf minnsta peð í hverjum reit þetta væri
-$$1\rArr2\rArr3\rArr6\rArr1\rArr\text{út}$$
+$$1->2->3->6->1->\text{út}$$
 þetta eru aðeins **5** mögulegar færslur sem er minna en **6** og sýnir þannig að minnsta tala í hverjum reit er ekki *the way to go*
 
 ## b)
@@ -91,7 +145,7 @@ $4\cdot O(n)$ og tími per undirverkefni er fasti
 $O(1)$ þannig heildartími er 
 $O(n)$
 
-## b)
+## c)
 ```python
 visited = {}
 data = parse("h4_test_puzzle.txt")
@@ -165,3 +219,8 @@ lengd lengstu leiðar: 7 lengsta leið:
 
 lengd lengstu leiðar: 86 lengsta leið:
 [(1, 1), (6, 2), (10, 4), (12, 1), (14, 2), (17, 2), (18, 4), (20, 4), (22, 2), (23, 4), (24, 4), (26, 2), (27, 4), (34, 4), (36, 4), (40, 2), (42, 3), (43, 3), (49, 2), (51, 4), (54, 4), (61, 4), (62, 1), (64, 1), (65, 4), (70, 1), (71, 2), (72, 3), (75, 3), (78, 3), (79, 3), (80, 3), (81, 3), (83, 2), (86, 2), (88, 2), (89, 1), (91, 1), (93, 4), (98, 2), (99, 3), (101, 2), (102, 2), (106, 3), (112, 2), (113, 2), (114, 3), (117, 4), (120, 3), (126, 2), (127, 4), (130, 1), (131, 3), (134, 4), (135, 4), (136, 4), (139, 3), (143, 1), (145, 2), (148, 2), (149, 2), (150, 2), (151, 4), (154, 3), (155, 3), (156, 3), (157, 2), (158, 4), (160, 4), (164, 2), (166, 3), (168, 4), (173, 1), (174, 1), (178, 2), (179, 3), (180, 4), (182, 4), (184, 3), (186, 3), (189, 1), (190, 1), (191, 4), (193, 2), (195, 4), (199, 4), 'end']
+
+
+# 4. fjársjóðsleit
+## i.
+undirverkefni eru að ákvarða hvort eigi að setja kubb niður eða ekki
