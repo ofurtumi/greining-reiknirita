@@ -13,7 +13,10 @@ $j$
 við viljum athuga fyrir hvern staf í A hvort hann sé til í B, og halda utan um fjölda stafa sem finnast í röð með einhverskonar töflu
 
 ### ii.
-$$L(A,B,i,j) = \begin{cases}arr[i-1][j-1] + 1 &\text{ef }A[i]=B[j]\\ 0 &\text{ef } A[i]\neq B[j]\end{cases}$$
+$$L(A,B,i,j) = \begin{cases}
+    arr[i-1][j-1] + 1 &\text{ef }A[i]=B[j]\\\\ 
+    0 &\text{ef } A[i]\neq B[j]
+\end{cases}$$
 
 í hverju skrefi athugum við hvort að núverandi stafur sé eins í strengjunum, ef svo er bætum við einum við fjölda eins stafa sem fundust í röð á undann þ.e. arr[i-1][j-1]
 
@@ -42,8 +45,8 @@ undirverkefni þessa verkefnis er að finna lengsta samhverfa hlutstreng `s` á 
 ### ii.
 við athugum fyrir hvert stak í s, hvort stak n-j sé jafnt, ef svo er þá athugum við hvort stak i+1 sé jafnt og stak n-(j+1) og svo framvegis  
 $$decode(i,j) = \begin{cases}
-    s[i]+decode(i+1,j-1) & \text{ef}\ s[i]=s[j]\\
-    decode(i+1,n) & \text{ef}\ s[i] \neq s[j]\\
+    s[i]+decode(i+1,j-1) & \text{ef}\ s[i]=s[j]\\\\
+    decode(i+1,n) & \text{ef}\ s[i] \neq s[j]\\\\
     s[i] & \text{ef}\ i=j
 \end{cases}$$
 
@@ -68,8 +71,8 @@ undirskref í þessu verkefni er að ákveða hvort fuglar eigi að vera á grei
 
 ### ii.
 $$birds(V, E) = \begin{cases}
-    V + max(birds(V+1, E(V)) - (V+2), birds(V+2, E(V+1) - (V+1))) \text{ef}\ V <= n\\
-    0 \text{ef}\ V > n
+    V + max(birds(V+1, E(V)) - (V+2), birds(V+2, E(V+1) - (V+1))) &\text{ef}\ V <= n\\\\
+    0 &\text{ef}\ V > n
 \end{cases}$$
 
 ### iii.
@@ -86,5 +89,5 @@ við geymum niðurstöðu fyrir stærsta fjölda fugla fyrir hvern hnút í einf
 
 
 ## 4. kvik bestun á trjám II
-
+nei takk 😄
 
