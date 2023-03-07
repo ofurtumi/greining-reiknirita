@@ -58,9 +58,11 @@ def get_best_game(data_path, path):
     return SM(0, 0)
 
 
-v1 = get_best_game("h4_example_puzzle.txt", True)
-print("lengd lengstu leiðar:", v1[0], "lengsta leið:\n", v1[1])
+#v1 = get_best_game("h4_example_puzzle.txt", True)
+# print("lengd lengstu leiðar:", v1[0], "lengsta leið:\n", v1[1])
 
-visited = {}
-v2 = get_best_game("h4_test_puzzle.txt", True)
-print("lengd lengstu leiðar:", v2[0], "lengsta leið:\n", v2[1])
+#visited = {}
+#v2 = get_best_game("h4_test_puzzle.txt", True)
+#print("lengd lengstu leiðar:", v2[0], "lengsta leið:\n", v2[1])
+keppnis = get_best_game("keppnis.txt", True)
+print(keppnis)
