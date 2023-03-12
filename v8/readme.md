@@ -3,26 +3,20 @@ script:
     - path: utils/mathjax-config.js
     - url: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
 ---
-# tímadæmi 8
+# heimaverkefni 8
 
-## 1.
-### a)
-heildargildi flæðis er 
-$7+1+5=13$
+ef við ímyndum okkur að við höfum hnúta 
+$s_0$ og 
+$t_0$ þar sem rými úr 
+$s_0$ og rými inn í 
+$t_0$ eru bæði 
+$\infty$
 
-### b)
-dæmi um aukningarveg væri 
-$s\to b\to e\to h\to t$
+tengjum núna þessa nýju hnúta við þá sem voru upphaflega í flæðisnetinu það mun þá líta svona út:  
 
-### c)
-![flow](imgs/flow2.png)
+![](imgs/multiple.png)
 
-### d)
-![s-t](imgs/s-t.png)
+nú erum við búin að leysa kjarna vandans, að vera með marga $s$ og $t$ hnúta
 
-### e)
-já það er til afskaplega skrautleg og löng sönnun sem sýnir það að það sé alltaf til $s-t$ snið sem er $0$
-
-
-## 2.
-## 
+þessi aðferð virkar líka fyrir net sem hafa hnúta sem eru bæði upphafs og endahnútar á sama tíma, við þurfum samt að bæta við einu skrefi til að það virki  
+fyrir alla hnúta V sem eru bæði upphafs- og endahnútar skiptum við þeim upp í tvennt, fyrir hnút $V_i$ yrði skiptingin $SV_i$ og $TV_i$ þar sem flæðið á milli leggjana ákvarðaðist af $w_i$
