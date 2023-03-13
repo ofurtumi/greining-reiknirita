@@ -29,7 +29,7 @@ $L \cup R$ og leggi E.
 tökum núna afrit af þessu neti og breytum því þannig að hver leggur sé hnútur með nafn 
 $(L_i, R_j)$ og tengjum þessa hnúta þannig að þeir uppfylli
 $i < i'$ þ.þ.a.a
-$j <j'$, köllum þetta net F
+$j < j'$, köllum þetta net F
 
 skoðum sýnidæmi fyrir þessa aðferð á nýju neti G:  
 
