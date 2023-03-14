@@ -31,6 +31,8 @@ $(L_i, R_j)$ og tengjum þessa hnúta þannig að þeir uppfylli
 $i < i'$ þ.þ.a.a
 $j < j'$, köllum þetta net F
 
+fyrir þetta net keyrum við *blackbox* reikniritið \***ÞFAV**
+
 skoðum sýnidæmi fyrir þessa aðferð á nýju neti G:  
 
 ![](imgs/decomp.excalidraw.png)
@@ -48,7 +50,21 @@ for current in F.nodes() { // ítrum yfir alla leggi í nýja netinu
 
 let decomp = F.dpc() // keyrum "black box" reikniritið disjoint path coverage
 for road in decomp.roads { // ítrum yfir alla aðskilda vegi F 
-    G.show(List(road)) // og sýnum tilheyrandi vegi úr G
+    G.show(road.edges) // og sýnum tilheyrandi vegi úr G
 }
 ```
-> þakning fyrir aðskilda vegi
+> *þakning fyrir aðskilda vegi
+
+## 3. áttun á óstefndu neti
+**Yfirfærsla**
+- búum til nýtt flæðisnet **G'** þar sem að hver leggur í upphaflegu netinu **G** myndar hnút $\{U,V\}$  
+- tengjum síðan hnút **S** yfir í nýju hnútana okkar og látum leggi **S** hafa rými 1  
+- næst búum við til nýja hnúta í **G'** sem samsvara hnútunum úr **G**og tengjum $\{U,V\}$ hnútana inn í þessa nýju hnúta,
+    - hnútur $\{U_i, V_i\}$ tengist inn í hnúta 
+    $U_i$ og 
+    $V_i$
+- að lokum tengjum við hnútana úr **G'** sem samsvara hnútunum úr **G** yfir í **T** með rými **K** 
+
+keyrum maxflow á þetta og fáum hámarksflæði fyrir nýja netið, ef hámarksflæðið mettar ekki alla leggi úr **S** þá getum við sagt að ekki sé hægt breyta netinu í stefnt net þannig að innstig allra hnúta sé í mesta lagi **K**
+
+![sýnidæmi fyrir 3](imgs/flow3.png)
