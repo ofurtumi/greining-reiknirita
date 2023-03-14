@@ -59,10 +59,8 @@ for road in decomp.roads { // ítrum yfir alla aðskilda vegi F
 **Yfirfærsla**
 - búum til nýtt flæðisnet **G'** þar sem að hver leggur í upphaflegu netinu **G** myndar hnút $\{U,V\}$  
 - tengjum síðan hnút **S** yfir í nýju hnútana okkar og látum leggi **S** hafa rými 1  
-- næst búum við til nýja hnúta í **G'** sem samsvara hnútunum úr **G**og tengjum $\{U,V\}$ hnútana inn í þessa nýju hnúta,
-    - hnútur $\{U_i, V_i\}$ tengist inn í hnúta 
-    $U_i$ og 
-    $V_i$
+- næst búum við til nýja hnúta í **G'** sem samsvara hnútunum úr **G** og tengjum $\{U,V\}$ hnútana inn í þessa nýju hnúta,
+    - hnútur **{A, B}** tengist inn í hnúta **A** og **B**
 - að lokum tengjum við hnútana úr **G'** sem samsvara hnútunum úr **G** yfir í **T** með rými **K** 
 
 keyrum maxflow á þetta og fáum hámarksflæði fyrir nýja netið, ef hámarksflæðið mettar ekki alla leggi úr **S** þá getum við sagt að ekki sé hægt breyta netinu í stefnt net þannig að innstig allra hnúta sé í mesta lagi **K**
