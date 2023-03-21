@@ -6,7 +6,7 @@ script:
 # heimaverkefni 8
 
 
-## 1. 
+## 1. fleiri uppsprettur og niðurföll
 ef við ímyndum okkur að við höfum hnúta 
 $s_0$ og 
 $t_0$ þar sem rými úr 
@@ -31,7 +31,7 @@ $(L_i, R_j)$ og tengjum þessa hnúta þannig að þeir uppfylli
 $i < i'$ þ.þ.a.a
 $j < j'$, köllum þetta net F
 
-fyrir þetta net keyrum við *blackbox* reikniritið \***ÞFAV**
+fyrir þetta net keyrum við *blackbox* reikniritið **ÞFAV**
 
 skoðum sýnidæmi fyrir þessa aðferð á nýju neti G:  
 
@@ -55,6 +55,8 @@ for road in decomp.roads { // ítrum yfir alla aðskilda vegi F
 ```
 > *þakning fyrir aðskilda vegi
 
+<div style='page-break-after: always;'></div>
+
 ## 3. áttun á óstefndu neti
 **Yfirfærsla**
 - búum til nýtt flæðisnet **G'** þar sem að hver leggur í upphaflegu netinu **G** myndar hnút $\{U,V\}$  
@@ -63,6 +65,8 @@ for road in decomp.roads { // ítrum yfir alla aðskilda vegi F
     - hnútur **{A, B}** tengist inn í hnúta **A** og **B**
 - að lokum tengjum við hnútana úr **G'** sem samsvara hnútunum úr **G** yfir í **T** með rými **K** 
 
-keyrum maxflow á þetta og fáum hámarksflæði fyrir nýja netið, ef hámarksflæðið mettar ekki alla leggi úr **S** þá getum við sagt að ekki sé hægt breyta netinu í stefnt net þannig að innstig allra hnúta sé í mesta lagi **K**
+keyrum Ford-Fulkersson á þetta og fáum hámarksflæði fyrir nýja netið, ef hámarksflæðið mettar ekki alla leggi úr **S** þá getum við sagt að ekki sé hægt breyta netinu í stefnt net þannig að innstig allra hnúta sé í mesta lagi **K**
 
 ![sýnidæmi fyrir 3](imgs/flow3.png)
+
+fyrir þessa útfærslu þarf að búa til **|E|** nýja hnúta og keyrsla þannig tímaflækjan fyrir yfirfærslu er **O(E)** en þar sem tímaflækja fyrir Ford-Fulkersson er **O(EV)** þá endum við með tímaflækju **O(EV)**
