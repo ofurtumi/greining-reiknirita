@@ -1,6 +1,16 @@
 #set page(margin: (x: 24pt, y: 32pt))
 #set text(size: 10pt)
 
+#let bbox(title, input, time, description, top: false) = {
+  if top != true [#box(width: 1fr, fill: luma(230), height: 2pt)]
+  grid(
+    columns: (1fr, 1fr),
+    [*#title* (#text(size: 8pt, [$#input$]))],
+    align(right, [$#time$])
+  )
+  [#description]
+}
+
 #show raw.where(block: true): it => block(
   width: 100%,
   fill: luma(230),
@@ -85,11 +95,11 @@ v búinn lokið þegar dýptarleit á *u* hefst: $v."post" < u."pre"$
 = netareiknirit
 
 #table(
-  columns: (1fr, 2fr, 1fr, 2fr),
+  columns: (3fr, 4fr, 3fr, 4fr),
   [Net *G=(V,E)*], [Vogtölur], [Reiknirit], [Tímaflækja],
-  [ó/stefnt, rásað], [$w in bb(R), w >= 0$], [Dijkstra], [$O(log(|V|) times |E|)$],
-  [ó/stefnt, rásað], [$w in bb(R)$], [Bellman-Ford], [$O(|V| times |E|)$],
-  [stefnt, órásað], [$w in bb(R)$], [SSSPDAG], [$O(|V| + |E|)$],
+  [ó/stefnt, rásað], [$w in bb(R), w >= 0$], [Dijkstra], [$O(log(V)E)$],
+  [ó/stefnt, rásað], [$w in bb(R)$], [Bellman-Ford], [$O(V E)$],
+  [stefnt, órásað], [$w in bb(R)$], [SSSPDAG], [$O(V + E)$],
 )
 
 ```python
@@ -107,4 +117,34 @@ def dijkstra(G, start):
         Q.push(u))
 ```
 
-
+#bbox(
+  "MaxFlow",
+  "G = (V,E)",
+  "O(VE)",
+  "Tekur inn flæðisnet og skilar því með hámarksflæði, passa að leggir þurfa þyngd",
+  top: true
+)
+#bbox(
+  "FlowToPaths",
+  "MaxFlow",
+  "O(E)",
+  "Tekur inn flæðisnet, búið að finna maxflow og skilar vegum sem fylgja því með tilliti til hnúta",
+)
+#bbox(
+  "FlowToMatching",
+  "MaxFlow",
+  "O(E)",
+  "Tekur inn maxflow og varpar yfir í spyrðingu"
+)
+#bbox(
+  "MaximumMatching",
+  "G(V,E)",
+  "",
+  "Tekur inn net með hnúta af týpu inn-út, og skilar hámarksspyrðingu, líka hægt að fá með MaxFlow",
+)
+#bbox(
+  "MatchingToCover",
+  "Matching",
+  "",
+  "Tekur inn spyrðingu úr falli eins og MM og skilar þakningu yfir netið",
+)
