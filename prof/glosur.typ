@@ -38,7 +38,7 @@
 #show: rest => columns(2, rest)
 
 
-= rakningarvensl
+= RAKNINGARVENSL
 
 summur af eftirfarandi hafa sömu útkomu, $(n(n+1)/2)$ sem er $O(n^2)$
 
@@ -48,16 +48,17 @@ $sum_(k=0)^n n-k = n + (n-1) + (n-2) + ... + 0 = O(n^2)$
 summur kvótaraða hafa líka sína eigin formúlu,
 $ sum_(k=0)^n r^k = cases(r != 1 := (r^(n+1) - 1) / r-1, r = 1 := (n+1)) $
 
-*muna* $a dot.op x^2 +b dot.op x + c = (-b +- sqrt(b^2-4a dot.op c))/(2a)$
+líka hægt að nota þetta stundum, þegar $0 <|r|<1$
+$ sum_(k=0)^(infinity) r^k = 1/(1-r) approx 1 $
 
-= logaritmar
+= LOGARITMAR
 $x^(log_x(y)) = y$
 $x^(log_x(y) + 1) = x^(log_x(y) + log_x(x)) = x^(log_x(x times y)) = x times y$
 
 #text(size: 8pt, [ef hægt er að mynda $x$ sem $z$ í veldi $y$ þá gengur eftirfarandi])
 $x^(log_z(n)) = (z^y)^(log_z(n)) = z^(y times log_z(n)) = z^(log_z(n^y)) = n^y$ \ 
 
-= Master theorems (recursion)
+= MASTER THEOREMS 
 == *$T(n) = a dot.op T(n/b) + f(n^c)$*
 
 + Ef $c < log_b(a)$ þá er $T(n) = O(n^(log_b(a)))$
@@ -69,7 +70,21 @@ $x^(log_z(n)) = (z^y)^(log_z(n)) = z^(y times log_z(n)) = z^(log_z(n^y)) = n^y$ 
 + Ef $a=1$ þá er $T(n) = O(n dot.op f(n))$
 + Ef $a>1$ þá er $T(n) = O(f(n) dot.op n^(a/b))$
 
-= DYP (dynamic programming)
+= LEGGIR OG LEIÐINDI
+leggir skilgreindir sem $U -> V$ þar sem $U$ er upphafspunktur og $V$ er endapunktur. 
+
+== fram / trjáleggir
+V er nýr þegar djúpleit á *U* hefst: $U."pre" < V."pre" < V."post" < U."post"$
++ *trjáleggur* ef U er foreldri V
++ *framleggur* annars
+
+== bakleggur
+v er virkur þegar dýptarleit á *U* hefst: $V."pre"< U."pre" < U."post" < V."post"$
+
+== krossleggur
+V búinn lokið þegar dýptarleit á *U* hefst: $V."post" < U."pre"$
+
+= DYNAMIC PROGRAMMING
 #example(
   [
     við höfum runu spilapeninga $t_1,...,t_n$. hver spilapeningur hefur tvo eiginleika, virði og lit. virði er tala á forminu $2,4,8,...,2048$ og litir eru R, G eða B. Við getum myndað vensl á milli peninga ef þeir uppfylla eftirfarandi reglur:
@@ -101,21 +116,8 @@ $x^(log_z(n)) = (z^y)^(log_z(n)) = z^(y times log_z(n)) = z^(log_z(n^y)) = n^y$ 
   - lokatímaflækja er $O(n*n) = O(n^2)$
 
 
-= leggir og leiðindi
-leggir skilgreindir sem $U -> V$ þar sem $U$ er upphafspunktur og $V$ er endapunktur. 
 
-== fram / trjáleggir
-V er nýr þegar djúpleit á *U* hefst: $U."pre" < V."pre" < V."post" < U."post"$
-+ *trjáleggur* ef U er foreldri V
-+ *framleggur* annars
-
-== bakleggur
-v er virkur þegar dýptarleit á *U* hefst: $V."pre"< U."pre" < U."post" < V."post"$
-
-== krossleggur
-V búinn lokið þegar dýptarleit á *U* hefst: $V."post" < U."pre"$
-
-= netareiknirit
+= NETAREIKNIRIT
 
 #table(
   columns: (3fr, 4fr, 3fr, 4fr),
@@ -172,7 +174,7 @@ def dijkstra(G, start):
   "Tekur inn spyrðingu úr falli eins og MM og skilar þakningu yfir netið",
 )
 
-= línuleg bestun
+= LÍNULEG BESTUN
 Formúla linu er $y=a dot.op x+b$ þar sem $a$ er hallatala línu og $b$ er skurðpunktur við $y$ ás. Til að finna skurðpunkt lína setja upp jöfnuhneppi og leysa fyrir x.
 
 Fjöldi skurpðpunkta útfrá skorðum er $binom("n", 2) -> "nCr"$ þar sem n er fjöldi skorða, á meðan hornapunktar gjaldgenga svæðisins tákna bara innliggjandi horn, sést mjög auðveldlega á mynd.
@@ -186,7 +188,7 @@ verkefni sem #underline[hægt] er að leysa í margliðutíma eru í flokknum P,
   - *co-NP:* hægt að staðfesta nei á margliðutíma
 #example([Reynum að finna minnsta _sterka_ mengi hnúta í neti $G$. Setjum verkefnið fram sem ákvörðunarverkefni, þ.e. svörum fyrir gefna tölu $k$ hvort til sé sterkt mengi af stærð $k$ í netinu. Við getum ekki svarað því í margliðutíma en við getum, ef við fáum gefið mengi þá getum við svarað í margliðutíma hvort það sé af stærð $k$ eða ekki. Þetta er NP-verkefni #text(size: 6pt, [_(co-NP)_]).])
 
-= slembni
+= SLEMBIREIKNIRIT
 Líkur á atburði $A$ eru táknaðar með $Pr[A]$ og fengnar með $sum_(w in A) Pr[cal(w)]$ þ.e. fyrir tening með fjórar hliðar er mengi sléttra talna $Omega = {2,4}$ og líkurnar á að fá aðra þeirra eru $1/4 + 1/4 = 2/4$
 
 Fyrir tvo fjögurra hliða teninga eru heildafjöldi útkoma hjá okkur $4^2$ þannig mengi þar sem báðir teningar hafi slétta tölu er $Omega = {(2,2), (4,2), (2,4), (4,4)}$ og líkurnar þá $4*1/16= 4/16 = 1/4$. 
@@ -199,5 +201,11 @@ Væntigildi $max(X_1, X_2)$, þar sem $X_1$ og $X_2$ eru fjögurra hliða tening
 
 Væntigildið er þá summa líkna þess að fá gildi, margfaldað við gildi þ.e. $1*1/16+2*3/16+3*5/16+4*7/16$
 
+Þetta er svo mikið rugl??
 
-
+= TIPS N TRICKS
+- Kvik bestunardæmi sem hægt er að leysa með þríhyrnings geymslu, _tvívítt fylki sem geymir "bestu" lausn fyrir þann reit_, eru yfirleitt $M dot.op N$
+- Línuleg bestun er auðveld, bara plugga skorðum inn í simplex
+- Hafa gaman :)
+- Drekka jafnt magn vatns og áfengis á djamminu
+- Alltaf hafa hreinar nærbuxur aðgengilegar
