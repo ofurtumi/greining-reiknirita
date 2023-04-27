@@ -209,3 +209,7 @@ Væntigildið er þá summa líkna þess að fá gildi, margfaldað við gildi �
 - Hafa gaman :)
 - Drekka jafnt magn vatns og áfengis á djamminu
 - Alltaf hafa hreinar nærbuxur aðgengilegar
+
+= Vaxtarhraði
+$1<log(n)<(log(n))^c<sqrt(n)<n<n log(n)<n^c<c^n<n^n<n!$
+Þar sem c er einhver fasti
