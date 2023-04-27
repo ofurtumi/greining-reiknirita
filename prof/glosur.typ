@@ -1,5 +1,5 @@
 #set page(margin: (x: 24pt, y: 32pt))
-#set text(size: 10pt)
+#set text(size: 11pt)
 
 #let bbox(title, input, time, description) = {
   block(
@@ -26,6 +26,7 @@
 
 #let example(body) = {
   block(
+    breakable: false,
     width: 100%,
     inset: 4pt,
     stroke: 1pt,
