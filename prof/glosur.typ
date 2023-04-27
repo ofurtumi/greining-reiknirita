@@ -2,13 +2,17 @@
 #set text(size: 10pt)
 
 #let bbox(title, input, time, description) = {
-  grid(
-    columns: (1fr, 1fr),
-    [*#title* (#text(size: 8pt, [$#input$]))],
-    align(right, [$#time$])
+  block(
+    breakable: false,
+    [#grid(
+      columns: (1fr, 1fr),
+      [*#title* (#text(size: 8pt, [$#input$]))],
+      align(right, [$#time$])
+    )
+    #description,
+    #box(width: 1fr, fill: luma(230), height: 2pt)
+    ]
   )
-  [#description]
-  box(width: 1fr, fill: luma(230), height: 2pt)
 }
 
 #show raw.where(block: true): it => block(
@@ -53,13 +57,17 @@ $x^(log_x(y) + 1) = x^(log_x(y) + log_x(x)) = x^(log_x(x times y)) = x times y$
 #text(size: 8pt, [ef hægt er að mynda $x$ sem $z$ í veldi $y$ þá gengur eftirfarandi])
 $x^(log_z(n)) = (z^y)^(log_z(n)) = z^(y times log_z(n)) = z^(log_z(n^y)) = n^y$ \ 
 
-= master theorem (recursion)
+= Master theorems (recursion)
+== *$T(n) = a dot.op T(n/b) + f(n^c)$*
 
-$T(n) = a times T(n/b) + f(n)$
++ Ef $c < log_b(a)$ þá er $T(n) = O(n^(log_b(a)))$
++ Ef $c = log_b(a)$ þá er $T(n) = O(n^(log_b(a)) dot.op log(n))$
++ Ef $c > log_b(a)$ þá er tími reikniritsins $T(n) = O(f(n))$
 
-+ Ef $f(n)$ er $O(n^c)$, þar sem $c$ er ehv fasti, og $f(n)$ er minna en $n^(log_b(a))$ þá er $T(n) = O(n^(log_b(a)))$
-+ Ef $f(n)$ er $O(n^c)$ og $f(n) == n^(log_b(a))$ þá er $T(n) = O(n^(log_b(a)) times log(n))$
-+ Ef $f(n)$ er $O(n^c)$ og $f(n)$ er stærra en $n^(log_b(a))$ og það er til ehv fasti $d$ sem sýnir að $a times f(n/b) <= d times f(n)$ fyrir öll nógu stór $n$, þá er tími reikniritsins $T(n) = O(f(n))$
+== *$T(n) = a dot.op T(n-b) + f(n)$*
++ Ef $a<1$ þá er $T(n) = O(f(n))$
++ Ef $a=1$ þá er $T(n) = O(n dot.op f(n))$
++ Ef $a>1$ þá er $T(n) = O(f(n) dot.op n^(a/b))$
 
 = DYP (dynamic programming)
 #example(
@@ -167,12 +175,29 @@ def dijkstra(G, start):
 = línuleg bestun
 Formúla linu er $y=a dot.op x+b$ þar sem $a$ er hallatala línu og $b$ er skurðpunktur við $y$ ás. Til að finna skurðpunkt lína setja upp jöfnuhneppi og leysa fyrir x.
 
+Fjöldi skurpðpunkta útfrá skorðum er $binom("n", 2) -> "nCr"$ þar sem n er fjöldi skorða, á meðan hornapunktar gjaldgenga svæðisins tákna bara innliggjandi horn, sést mjög auðveldlega á mynd.
+
 = P/NP
 verkefni sem #underline[hægt] er að leysa í margliðutíma eru í flokknum P, verkefni sem #underline[ekki hægt] er að leysa í margliðutíma eru í flokknum NP. 
 - *Ákvörðunarverkefni:* verkefni sem hafa lausn já/nei
   - *P:* hægt að leysa í margliðutíma
   - *NP:* hægt að staðfesta já á margliðutíma
+    - líka ef hægt er að leysa þekkt NP-verkefni með lausn á þessu verkefni
   - *co-NP:* hægt að staðfesta nei á margliðutíma
 #example([Reynum að finna minnsta _sterka_ mengi hnúta í neti $G$. Setjum verkefnið fram sem ákvörðunarverkefni, þ.e. svörum fyrir gefna tölu $k$ hvort til sé sterkt mengi af stærð $k$ í netinu. Við getum ekki svarað því í margliðutíma en við getum, ef við fáum gefið mengi þá getum við svarað í margliðutíma hvort það sé af stærð $k$ eða ekki. Þetta er NP-verkefni #text(size: 6pt, [_(co-NP)_]).])
+
+= slembni
+Líkur á atburði $A$ eru táknaðar með $Pr[A]$ og fengnar með $sum_(w in A) Pr[cal(w)]$ þ.e. fyrir tening með fjórar hliðar er mengi sléttra talna $Omega = {2,4}$ og líkurnar á að fá aðra þeirra eru $1/4 + 1/4 = 2/4$
+
+Fyrir tvo fjögurra hliða teninga eru heildafjöldi útkoma hjá okkur $4^2$ þannig mengi þar sem báðir teningar hafi slétta tölu er $Omega = {(2,2), (4,2), (2,4), (4,4)}$ og líkurnar þá $4*1/16= 4/16 = 1/4$. 
+
+Þetta virkar þar sem fyrir sérhverja tvo atburði $A$ og $B$ með $Pr[B] > 0$ skilgreinum við skilyrtar líkur á $A$ gefið $B$, þ.e.$A$ og $B$, sem $Pr[A | B] = (Pr[A and B]) / Pr[B]$
+
+Líkur á að fá í mesta lagi einn $3$ þegar við köstum tveimur tengingum og vitum að fyrri teningurinn skilar alltaf $3$ eru $3/4$, sjáum að ef við notum formúluna fyrir ofan er $A$ að fá ekki þrist á öðrum teningnum, $B$ er að fyrri teningur skilar alltaf $3$. $Pr[A] = 3/4$ og $Pr[B] = 1/4$. Þessu er síðan hægt að plugga inn í formúluna uppi.
+
+Væntigildi $max(X_1, X_2)$, þar sem $X_1$ og $X_2$ eru fjögurra hliða teningar, höfum við útkomumengi $Omega = {(1,1), (1,2), (1,3),...,(4,3), (4,4)}$ 
+
+Væntigildið er þá summa líkna þess að fá gildi, margfaldað við gildi þ.e. $1*1/16+2*3/16+3*5/16+4*7/16$
+
 
 
